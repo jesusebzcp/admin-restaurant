@@ -4,7 +4,7 @@ import { BrowserRouter as Routing, Route, Switch } from 'react-router-dom';
 import SideBar from '../SideBar';
 import Ordenes from '../components/Ordenes';
 import Menu from '../components/Menu';
-import NuevoPlatillo from '../components/NuevoPlatillo';
+import NuevoProducto from '../components/nuevoProducto';
 
 const Navegation = () => {
   return (
@@ -17,7 +17,7 @@ const Navegation = () => {
 
             <Route exact path="/menu" component={Menu} />
 
-            <Route exact path="/nuevo-platillo" component={NuevoPlatillo} />
+            <Route exact path="/nuevo-producto" component={NuevoProducto} />
           </Switch>
         </div>
       </div>
