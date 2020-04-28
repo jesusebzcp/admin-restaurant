@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 
 import { FirebaseContext } from '../../firebase';
 import 'firebase/firestore';
+import 'firebase/storage';
 import FileUploader from 'react-firebase-file-uploader';
 
 import { useHistory } from 'react-router-dom';
@@ -45,6 +46,7 @@ const NuevoProducto = () => {
     onSubmit: (producto) => {
       try {
         producto.existencia = true;
+        producto.imagen = url;
         firebase.db.collection('productos').add(producto);
         redirecionar.push('/menu');
       } catch (error) {
@@ -61,16 +63,15 @@ const NuevoProducto = () => {
     setSubiendo(false);
     console.log(error);
   };
-  const handleUploadSuccess = (nombre) => {
+  const handleUploadSuccess = async (nombre) => {
     setProgreso(100);
     setSubiendo(false);
     //guardar url de destino
-    const url = firebase
-      .storage()
-      .ref('producto')
+    const url = await firebase.storage
+      .ref('productos')
       .child(nombre)
       .getDownloadURL();
-    setUrl(url);
+    console.log(url);
     setUrl(url);
   };
   const handleProgress = (progreso) => {
@@ -81,7 +82,7 @@ const NuevoProducto = () => {
   return (
     <>
       <h1>Agregar platillo</h1>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 ">
         <div className=" max-w-3xl w-full">
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-4">
@@ -185,6 +186,21 @@ const NuevoProducto = () => {
                 onUploadSuccess={handleUploadSuccess}
                 onProgress={handleProgress}
               />
+              {subiendo && (
+                <div className="h-12 relative w-full border mt-4">
+                  <div
+                    className="bg-green-500 ansolute left-0 top-0 text-white px-2 text-sm h-12 flex items-center"
+                    style={{ width: `${progreso}%` }}
+                  >
+                    {`${progreso}%`}
+                  </div>
+                </div>
+              )}
+              {setUrl && (
+                <p className="bg-green-500 text-white p-3 text-center my-5">
+                  La imagen se subi correctamente
+                </p>
+              )}
             </div>
             <div className="mb-4">
               <label

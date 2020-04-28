@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FirebaseContext } from '../../firebase';
+import Producto from '../ui/index';
 
 const Menu = () => {
+  const [productos, setProducto] = useState([]);
+  const { firebase } = useContext(FirebaseContext);
+
+  useEffect(() => {
+    const obtenerProductos = () => {
+      firebase.db.collection('productos').onSnapshot(handleSnapshot);
+    };
+    obtenerProductos();
+  }, []);
+  const handleSnapshot = (snapshot) => {
+    const productos = snapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+      };
+    });
+    setProducto(productos);
+  };
   return (
     <>
       <h1 className="text-3xl font-light mb4">Menu</h1>
@@ -11,6 +31,9 @@ const Menu = () => {
       >
         Agregar Producto
       </Link>
+      {productos.map((producto) => (
+        <Producto key={producto.id} producto={producto} />
+      ))}
     </>
   );
 };

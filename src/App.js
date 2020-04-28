@@ -1,8 +1,9 @@
 import React from 'react';
-import Navegation from './Navegation';
+
 import 'firebase/firestore';
 
 import firebase, { FirebaseContext } from './firebase';
+import Navegation from './Navegation';
 
 function App() {
   return (
