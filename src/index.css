@@ -17,3 +17,7 @@ h4 {
 .contSelect {
   width: -2rem;
 }
+.contMenu {
+  padding-left: 8rem !important;
+  padding-top: 2rem !important;
+}

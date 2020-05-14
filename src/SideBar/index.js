@@ -1,35 +1,63 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
+  const styles = {
+    bmBurgerButton: {
+      position: 'fixed',
+      width: '36px',
+      height: '30px',
+      left: '36px',
+      top: '36px',
+    },
+    bmBurgerBars: {
+      background: '#373a47',
+    },
+    bmBurgerBarsHover: {
+      background: '#a90000',
+    },
+    bmCrossButton: {
+      height: '24px',
+      width: '24px',
+    },
+    bmCross: {
+      background: '#bdc3c7',
+    },
+    bmMenuWrap: {
+      position: 'fixed',
+      height: '100%',
+    },
+    bmMenu: {
+      background: '#373a47',
+      padding: '2.5em 1.5em 0',
+      fontSize: '1.15em',
+    },
+    bmMorphShape: {
+      fill: '#373a47',
+    },
+    bmItemList: {
+      color: '#b8b7ad',
+      padding: '0.8em',
+    },
+    bmItem: {
+      display: 'inline-block',
+    },
+    bmOverlay: {
+      background: 'rgba(0, 0, 0, 0.3)',
+    },
+  };
   return (
     <>
-      <div className="md:w-2/5 xl:w-1/5 bg-gray-800 p-4">
-        <div className="P-6">
-          <p className="uppercase text-white text-lg tracking-wide text-center font-bold">
-            Demo restaurant
-          </p>
-          <p className="mt-3 text-gray-500">
-            Administra tu restaurant en las siguientes opciones:
-          </p>
-          <nav>
-            <NavLink
-              className=" text-gray-400 block hover:bg-yellow-500 hover:text-gray-500"
-              activeClassName="text-yellow-500"
-              to="/"
-            >
-              Ordenes
-            </NavLink>
-            <NavLink
-              className="p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-500"
-              activeClassName="text-yellow-500"
-              to="/menu"
-            >
-              Menu
-            </NavLink>
-          </nav>
-        </div>
-      </div>
+      {' '}
+      <Menu styles={styles}>
+        <Link className="menu-item bg-dark" to="/">
+          Ordenes
+        </Link>
+        <Link className="menu-item" to="/menu">
+          Productos
+        </Link>
+      </Menu>
     </>
   );
 };

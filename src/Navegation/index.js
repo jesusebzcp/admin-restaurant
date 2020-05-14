@@ -9,17 +9,15 @@ import NuevoProducto from '../components/nuevoProducto';
 const Navegation = () => {
   return (
     <Routing>
-      <div className="md:flex min-h-screen">
-        <SideBar />
-        <div className="md:w-3/5 xl:w-4/5 p-6">
-          <Switch>
-            <Route exact path="/" component={Ordenes} />
+      <SideBar />
+      <div className="contMenu">
+        <Switch>
+          <Route exact path="/" component={Ordenes} />
 
-            <Route exact path="/menu" component={Menu} />
+          <Route exact path="/menu" component={Menu} />
 
-            <Route exact path="/nuevo-producto" component={NuevoProducto} />
-          </Switch>
-        </div>
+          <Route exact path="/nuevo-producto" component={NuevoProducto} />
+        </Switch>
       </div>
     </Routing>
   );

@@ -196,7 +196,7 @@ const NuevoProducto = () => {
                   </div>
                 </div>
               )}
-              {setUrl && (
+              {url && (
                 <p className="bg-green-500 text-white p-3 text-center my-5">
                   La imagen se subi correctamente
                 </p>
