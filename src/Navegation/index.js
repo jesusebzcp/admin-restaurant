@@ -11,13 +11,15 @@ const Navegation = () => {
     <Routing>
       <SideBar />
       <div className="contMenu">
-        <Switch>
-          <Route exact path="/" component={Ordenes} />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Ordenes} />
 
-          <Route exact path="/menu" component={Menu} />
+            <Route exact path="/menu" component={Menu} />
 
-          <Route exact path="/nuevo-producto" component={NuevoProducto} />
-        </Switch>
+            <Route exact path="/nuevo-producto" component={NuevoProducto} />
+          </Switch>
+        </div>
       </div>
     </Routing>
   );

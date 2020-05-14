@@ -31,9 +31,16 @@ const Menu = () => {
       >
         Agregar Producto
       </Link>
-      {productos.map((producto) => (
-        <Producto key={producto.id} producto={producto} />
-      ))}
+
+      <div className="container">
+        <div className="row">
+          {productos.map((producto) => (
+            <div className="col-sm-4 mt-6">
+              <Producto key={producto.id} producto={producto} />
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
