@@ -1,6 +1,6 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const SideBar = () => {
   const styles = {
@@ -41,7 +41,7 @@ const SideBar = () => {
       padding: '0.8em',
     },
     bmItem: {
-      display: 'inline-block',
+      display: 'block',
     },
     bmOverlay: {
       background: 'rgba(0, 0, 0, 0.3)',
@@ -51,12 +51,27 @@ const SideBar = () => {
     <>
       {' '}
       <Menu styles={styles}>
-        <Link className="menu-item bg-dark" to="/">
-          Ordenes
+        <h4 className="text-white">
+          Panel administrativo <i className="fas fa-user-cog"></i>
+        </h4>
+        <Link className="mt-5 menu-item" to="/">
+          Home <i className="fas fa-home"></i>
         </Link>
-        <Link className="menu-item" to="/menu">
-          Productos
-        </Link>
+
+        <NavLink
+          activeClassName="text-danger"
+          className="mt-5 menu-item "
+          to="/ordenes"
+        >
+          Ordenes <i className="fas fa-bell"></i>
+        </NavLink>
+        <NavLink
+          activeClassName="text-danger"
+          className="mt-5 menu-item"
+          to="/menu"
+        >
+          Productos <i className="fas fa-tags"></i>
+        </NavLink>
       </Menu>
     </>
   );

@@ -54,6 +54,10 @@ const Producto = ({ producto }) => {
           {descripcion}
         </p>
         <p>
+          <span className="font-weight-bold">Categoria:</span>{' '}
+          <span className="text-warning"> {categoria} </span>$
+        </p>
+        <p>
           <span className="font-weight-bold">Precio:</span>{' '}
           <span className="text-danger"> {precio} </span>$
         </p>

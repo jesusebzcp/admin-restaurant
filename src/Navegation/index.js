@@ -5,6 +5,7 @@ import SideBar from '../SideBar';
 import Ordenes from '../components/Ordenes';
 import Menu from '../components/Menu';
 import NuevoProducto from '../components/nuevoProducto';
+import Home from '../Pages/Home';
 
 const Navegation = () => {
   return (
@@ -13,7 +14,8 @@ const Navegation = () => {
       <div className="contMenu">
         <div className="container">
           <Switch>
-            <Route exact path="/" component={Ordenes} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/ordenes" component={Ordenes} />
 
             <Route exact path="/menu" component={Menu} />
 

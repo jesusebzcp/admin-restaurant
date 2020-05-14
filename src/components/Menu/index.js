@@ -24,13 +24,14 @@ const Menu = () => {
   };
   return (
     <>
-      <h1 className="text-3xl font-light mb4">Menu</h1>
-      <Link
-        to="/nuevo-producto"
-        className="rounded bg-blue-800 hover:bg-blue-700 inline-block mb-5 p-2 text-white uppercase font-bold "
-      >
-        Agregar Producto
-      </Link>
+      <h1 className="text-center my-10">lista de productos</h1>
+      <div className="d-flex">
+        {' '}
+        <h3 className="mr-3">Agrega un producto</h3>
+        <Link to="/nuevo-producto" className=" btn btn-danger">
+          Agregar Producto <i className="fas fa-plus-circle"></i>
+        </Link>
+      </div>
 
       <div className="container">
         <div className="row">
