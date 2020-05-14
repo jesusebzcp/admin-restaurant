@@ -52,7 +52,7 @@ const Orden = ({ orden }) => {
             <button
               onClick={() => definirTiempo(orden.id)}
               type="submit"
-              className="btn btn-success"
+              className="btn btn-success my-2"
             >
               Definir tiempo de entrega<i className="fas fa-stopwatch"></i>
             </button>
@@ -60,7 +60,7 @@ const Orden = ({ orden }) => {
         )}
         {orden.tiempoEntrega > 0 && (
           <p>
-            <span>{tiempoEntrega} :minuto(s)</span>
+            <span>{orden.tiempoEntrega} :minuto(s)</span>
           </p>
         )}
       </div>
