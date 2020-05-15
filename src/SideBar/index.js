@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { Link, NavLink } from 'react-router-dom';
+import { FirebaseContext } from '../firebase';
 
 const SideBar = () => {
+  const { firebase, usuarioAuth } = useContext(FirebaseContext);
+
+ 
+  const cerraSesion = async () => {
+    try {
+      await firebase.auth.signOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const styles = {
     bmBurgerButton: {
       position: 'fixed',
@@ -54,6 +66,7 @@ const SideBar = () => {
         <h4 className="text-white">
           Panel administrativo <i className="fas fa-user-cog"></i>
         </h4>
+        <p>Bienvenido: usuario</p>
         <Link className="mt-5 menu-item" to="/">
           Home <i className="fas fa-home"></i>
         </Link>
@@ -72,6 +85,11 @@ const SideBar = () => {
         >
           Productos <i className="fas fa-tags"></i>
         </NavLink>
+        {usuarioAuth && (
+          <button onClick={() => cerraSesion()} className="btn btn-danger mt-5">
+            Cerrar sesion
+          </button>
+        )}
       </Menu>
     </>
   );

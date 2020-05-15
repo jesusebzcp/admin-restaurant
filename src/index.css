@@ -21,3 +21,24 @@ h4 {
   padding-left: 8rem !important;
   padding-top: 2rem !important;
 }
+.login {
+  height: 100vh;
+
+  background-color: gray;
+}
+.contenedorLogin {
+  margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contMenu {
+    padding-left: 0rem !important;
+    padding-top: 4rem !important;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .btnAgg {
+    margin-top: 2rem;
+  }
+}

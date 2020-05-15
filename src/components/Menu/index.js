@@ -25,10 +25,10 @@ const Menu = () => {
   return (
     <>
       <h1 className="text-center my-10">lista de productos</h1>
-      <div className="d-flex">
+      <div className="d-flex header">
         {' '}
-        <h3 className="mr-3">Agrega un producto</h3>
-        <Link to="/nuevo-producto" className=" btn btn-danger">
+        <h4 className="mr-3">Agrega un producto</h4>
+        <Link to="/nuevo-producto" className="btnAgg btn btn-danger">
           Agregar Producto <i className="fas fa-plus-circle"></i>
         </Link>
       </div>
