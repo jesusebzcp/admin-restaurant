@@ -31,7 +31,6 @@ const Orden = ({ orden }) => {
   };
   return (
     <>
-      {orden.orden && <h1>No hay ordenes</h1>}
       <div className="card" style={style}>
         <div className="card-body">
           <h5 className="card-title">
