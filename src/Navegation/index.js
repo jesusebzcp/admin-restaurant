@@ -7,7 +7,7 @@ import Menu from '../components/Menu';
 import NuevoProducto from '../components/nuevoProducto';
 import Home from '../Pages/Home';
 import Registro from '../components/registrar';
-import Login from '../components/login';
+import Historial from '../components/historial';
 
 const Navegation = () => {
   return (
@@ -24,6 +24,7 @@ const Navegation = () => {
             <Route exact path="/nuevo-producto" component={NuevoProducto} />
 
             <Route exact path="/registro" component={Registro} />
+            <Route exact path="/historial" component={Historial} />
           </Switch>
         </div>
       </div>

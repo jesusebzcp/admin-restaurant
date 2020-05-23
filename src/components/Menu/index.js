@@ -28,7 +28,7 @@ const Menu = () => {
       <div className="d-flex header">
         {' '}
         <h4 className="mr-3">Agrega un producto</h4>
-        <Link to="/nuevo-producto" className="btnAgg btn btn-danger">
+        <Link to="/nuevo-producto" className="btnAgg btn btn-success">
           Agregar Producto <i className="fas fa-plus-circle"></i>
         </Link>
       </div>

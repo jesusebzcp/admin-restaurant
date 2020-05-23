@@ -5,8 +5,8 @@ import { FirebaseContext } from '../firebase';
 
 const SideBar = () => {
   const { firebase, usuarioAuth } = useContext(FirebaseContext);
+  console.log(usuarioAuth.displayName);
 
- 
   const cerraSesion = async () => {
     try {
       await firebase.auth.signOut();
@@ -63,10 +63,10 @@ const SideBar = () => {
     <>
       {' '}
       <Menu styles={styles}>
-        <h4 className="text-white">
+        <h6 className="text-white">
           Panel administrativo <i className="fas fa-user-cog"></i>
-        </h4>
-        <p>Bienvenido: usuario</p>
+        </h6>
+        <p>Bienvenido: {usuarioAuth.displayName}</p>
         <Link className="mt-5 menu-item" to="/">
           Home <i className="fas fa-home"></i>
         </Link>
@@ -85,11 +85,17 @@ const SideBar = () => {
         >
           Productos <i className="fas fa-tags"></i>
         </NavLink>
-        {usuarioAuth && (
-          <button onClick={() => cerraSesion()} className="btn btn-danger mt-5">
-            Cerrar sesion
-          </button>
-        )}
+        <NavLink
+          activeClassName="text-danger"
+          className="mt-5 menu-item"
+          to="/historial"
+        >
+          Historial <i className="fas fa-tags"></i>
+        </NavLink>
+
+        <button onClick={() => cerraSesion()} className="btn btn-danger mt-5">
+          Cerrar sesion
+        </button>
       </Menu>
     </>
   );

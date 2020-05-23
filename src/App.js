@@ -1,6 +1,4 @@
-import React from 'react';
-
-import 'firebase/firestore';
+import React, { Suspense } from 'react';
 
 import firebase, { FirebaseContext } from './firebase';
 import Navegation from './Navegation';
@@ -12,9 +10,11 @@ function App() {
 
   return (
     <FirebaseContext.Provider value={{ firebase, usuarioAuth }}>
-      {!usuarioAuth && <Login />}
+      <Suspense fallback={'cargando..'}>
+        {!usuarioAuth && <Login />}
 
-      {usuarioAuth && <Navegation />}
+        {usuarioAuth && <Navegation />}
+      </Suspense>
     </FirebaseContext.Provider>
   );
 }

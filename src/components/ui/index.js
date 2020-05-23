@@ -25,6 +25,15 @@ const Producto = ({ producto }) => {
       console.log(error);
     }
   };
+  //eliminharPorducto
+  const eliminarProducto = async (id) => {
+    try {
+      await firebase.db.collection('productos').doc(id).delete();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const style = {
     card: {
       width: '18rem',
@@ -62,6 +71,12 @@ const Producto = ({ producto }) => {
           <span className="text-danger"> {precio} </span>$
         </p>
       </div>
+      <button
+        className="btn btn-danger mt-2 d-block"
+        onClick={() => eliminarProducto(id)}
+      >
+        Eliminar producto
+      </button>
     </div>
   );
 };
