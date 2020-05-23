@@ -12,6 +12,7 @@
     "formik": "^2.1.4",
     "postcss-cli": "^7.1.0",
     "react": "^16.13.1",
+    "react-burger-menu": "^2.6.13",
     "react-dom": "^16.13.1",
     "react-fire": "^1.1.2",
     "react-firebase-file-uploader": "^2.4.3",
