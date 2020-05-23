@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from '../firebase';
 
 function useAutenticacion() {
-  const [usuarioAutenticado, setUsuarioAutenticado] = useState(null);
-  console.log(usuarioAutenticado);
+  const [usuarioAutenticado, setUsuarioAutenticado] = useState();
 
   useEffect(() => {
     const unsuscribe = firebase.auth.onAuthStateChanged((usuarioAuth) => {
