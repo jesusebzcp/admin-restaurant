@@ -154,9 +154,14 @@ const NuevoProducto = () => {
                 onBlur={formik.handleBlur}
               >
                 <option value="">--Seleciones una categoria</option>
-                <option value="desayuno">desayuno</option>
-                <option value="Bebida">Bebida</option>
-                <option value="cena">cena</option>
+                <option value="VerdurasyHortalizas">
+                  Verduras y Hortalizas
+                </option>
+                <option value="Licor">Licor</option>
+                <option value="CanastaBasica">Canasta Basica</option>
+                <option value="Hingiene"> Hingiene</option>
+                <option value="Variedades">Variedades</option>
+                <option value="Promocion">Promocion</option>
               </select>
             </div>
             {formik.touched.categoria && formik.errors.categoria ? (

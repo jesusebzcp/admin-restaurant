@@ -30,7 +30,7 @@ const Ordenes = () => {
         <div className="row">
           {ordenesBd.map((orden) => {
             return (
-              <div className="col-sm-4 mt-6" key={orden.id}>
+              <div className="col-sm-6 mt-6" key={orden.id}>
                 <Orden orden={orden} />
               </div>
             );

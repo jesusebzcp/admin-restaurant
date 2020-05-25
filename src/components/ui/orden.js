@@ -37,10 +37,18 @@ const Orden = ({ orden }) => {
             Id orden: <span className="text-danger"> {orden.id}</span>
           </h5>
           {orden.orden.map((productos) => {
+            console.log(productos);
             return (
-              <p className="card-text" key={productos.id}>
-                Cantidad:{productos.cantidad} {productos.nombre}
-              </p>
+              <>
+                <p className="card-text" key={productos.id}>
+                  Cantidad:{productos.cantidad} {productos.nombre}
+                </p>
+                <h6>Datos de entrega</h6>
+                <p>ID de cliente:{productos.uid}</p>
+                <p>Cliente:{productos.displayName}</p>
+                <p>Direccion de entrega:{productos.direccion}</p>
+                <p>Comentarios:{productos.comentarios}</p>
+              </>
             );
           })}
           <p className="card-text">Total a pagar: {orden.total}$</p>
